@@ -44,6 +44,7 @@
   },
   "require-dev": {
     "captainhook/captainhook": "^5.18",
+    "civicrm/cli-tools": "^2025.04",
     "consolidation/robo": "^4.0",
     "friendsofphp/php-cs-fixer": "@stable",
     "phpcompatibility/phpcompatibility-wp": "@stable",
@@ -61,9 +62,10 @@
     "optimize-autoloader": true,
     "sort-packages": true,
     "allow-plugins": {
+      "civicrm/composer-downloads-plugin": true,
+      "composer/installers": true,
       "dealerdirect/phpcodesniffer-composer-installer": true,
-      "johnpbloch/wordpress-core-installer": true,
-      "composer/installers": true
+      "johnpbloch/wordpress-core-installer": true
     },
     "platform": {
       "php": "7.4"

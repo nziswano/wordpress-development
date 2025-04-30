@@ -14,6 +14,8 @@ else
 	wp core install --url=${DOMAIN_CURRENT_SITE} --title="${SITE_TITLE}" --admin_user=admin --admin_password=randomtest --admin_email=info@johanmartin.dev --debug
 	wp core update-db
 
+# Install CiviCRM
+
 fi
 
 # start server

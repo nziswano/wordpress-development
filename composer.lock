@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8aeb08f0b2172a28b3f0ff88e04ed40",
+    "content-hash": "74dc0c7c26c739d2725966fc5bdb0d5c",
     "packages": [
         {
             "name": "composer/installers",
@@ -976,6 +976,163 @@
                 }
             ],
             "time": "2023-11-05T13:56:19+00:00"
+        },
+        {
+            "name": "civicrm/cli-tools",
+            "version": "v2025.04.17.1744869264",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/civicrm/civicrm-cli-tools.git",
+                "reference": "a52b5ffd4d7f41b6d91ba899ea93a2bb41c22ba8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/civicrm/civicrm-cli-tools/zipball/a52b5ffd4d7f41b6d91ba899ea93a2bb41c22ba8",
+                "reference": "a52b5ffd4d7f41b6d91ba899ea93a2bb41c22ba8",
+                "shasum": ""
+            },
+            "require": {
+                "civicrm/composer-downloads-plugin": "^3.0 || ^4.0"
+            },
+            "bin": [
+                "bin/civistrings",
+                "bin/civix",
+                "bin/cv",
+                "bin/coworker"
+            ],
+            "type": "library",
+            "extra": {
+                "downloads": {
+                    "*": {
+                        "path": "extern/{$id}",
+                        "type": "phar"
+                    },
+                    "cv.phar": {
+                        "url": "https://download.civicrm.org/cv/cv-0.3.63.phar",
+                        "version": "0.3.63"
+                    },
+                    "civix.phar": {
+                        "url": "https://download.civicrm.org/civix/civix-25.04.0.phar",
+                        "version": "25.04.0"
+                    },
+                    "coworker.phar": {
+                        "url": "https://download.civicrm.org/coworker/coworker-0.6.phar",
+                        "version": "0.6"
+                    },
+                    "civistrings.phar": {
+                        "url": "https://download.civicrm.org/civistrings/civistrings.phar-2022-08-30-c035da67",
+                        "version": "2022-08-30-c035da67"
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Otten",
+                    "email": "totten@civicrm.org"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/civicrm/civicrm-cli-tools/issues",
+                "source": "https://github.com/civicrm/civicrm-cli-tools/tree/v2025.04.17.1744869264"
+            },
+            "time": "2025-04-17T05:54:25+00:00"
+        },
+        {
+            "name": "civicrm/composer-downloads-plugin",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/civicrm/composer-downloads-plugin.git",
+                "reference": "7af08ca4a78607ac2bad3215c05a10390da9c673"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/civicrm/composer-downloads-plugin/zipball/7af08ca4a78607ac2bad3215c05a10390da9c673",
+                "reference": "7af08ca4a78607ac2bad3215c05a10390da9c673",
+                "shasum": ""
+            },
+            "require": {
+                "civicrm/gitignore": "~1.2.0",
+                "composer-plugin-api": "^2.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "composer/composer": "~2.0",
+                "friendsofphp/php-cs-fixer": "^2.3",
+                "phpunit/phpunit": "^8.5 || ^9.5",
+                "totten/process-helper": "^1.0.1"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "LastCall\\DownloadsPlugin\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "LastCall\\DownloadsPlugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Bayliss",
+                    "email": "rob@lastcallmedia.com"
+                },
+                {
+                    "name": "Tim Otten",
+                    "email": "totten@civicrm.org"
+                }
+            ],
+            "description": "Composer plugin for downloading additional files within any composer package.",
+            "support": {
+                "source": "https://github.com/civicrm/composer-downloads-plugin/tree/v4.0.0"
+            },
+            "time": "2024-04-09T20:34:36+00:00"
+        },
+        {
+            "name": "civicrm/gitignore",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/civicrm/PHPGitIgnore.git",
+                "reference": "7491782ee89c4e14bbcc9b30bebb90389054cb2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/civicrm/PHPGitIgnore/zipball/7491782ee89c4e14bbcc9b30bebb90389054cb2e",
+                "reference": "7491782ee89c4e14bbcc9b30bebb90389054cb2e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "replace": {
+                "togos/gitignore": "1.*"
+            },
+            "require-dev": {
+                "togos/simpler-test": "1.1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "TOGoS_GitIgnore_": "src/main/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Parser for .gitignore (and sparse-checkout, and anything else using the same format) files",
+            "support": {
+                "source": "https://github.com/civicrm/PHPGitIgnore/tree/1.2.0"
+            },
+            "time": "2024-04-09T07:07:33+00:00"
         },
         {
             "name": "clue/ndjson-react",
