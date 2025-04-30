@@ -1,7 +1,13 @@
 # Basic WordPress development setup.
+
 -   Contains the basics needed to setup a WordPress site using composer
 
-## How To
+## Setup
+
+-   Copy example.env to .env
+-   Run: `./wp-site-setup.sh`
+
+### Run the server
 
 1. Start server `wp server --port=8000 --debug --color --host=127.0.0.1`
 1. Ngrok: `ngrok http 8000 --domain ${NGROK_DOMAIN} --authtoken ${NGROK_AUTH_TOKEN} --config ngrok.yml`
