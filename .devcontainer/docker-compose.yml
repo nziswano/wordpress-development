@@ -1,24 +1,44 @@
 name: wordpress_dev
 services:
   app:
-    platform: linux/arm64
     image: ghcr.io/nziswano/wp-devcontainer:latest
     volumes:
       - ..:/workspace:cached
-      - vscode-extension-wp:/vscode/.vscode-server/extensions
+      - vscode-extensions-wp:/vscode/.vscode-server/extensions
+    environment:
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      DOMAIN_CURRENT_SITE: 127.0.0.1:8000
+      SITE_TITLE: "Developer Test Site"
+      WP_DEBUG_CONFIG: true
+      WP_DEBUG_CONFIG_DISPLAY_ERRORS: "On"
+      WP_DEBUG_CONFIG_DISPLAY: true
+      WP_DEBUG_CONFIG_LOG: true
+      WP_DEBUG_CONFIG_SCRIPT: true
+      WP_DEBUG_CONFIG_SAVEQUERIES: true
+      WP_TESTS_DIR: "/workspace/wordpress/wordpress"
+      CIVICRM_DB_HOST: wordpressdb
+      CIVICRM_DB_NAME: civicrm
+      CIVICRM_DB_PASSWORD: wordpress
+      CIVICRM_DB_PORT: 3306
+      CIVICRM_DB_USER: wordpress
+      CIVICRM_UF_BASEURL: "http://localhost:8080"
     command: sleep infinity
     network_mode: service:wordpressdb
-    depends_on:
-      - wordpressdb
   wordpressdb:
-    platform: linux/arm64
-    image: mariadb
-    restart: unless-stopped
+    image: mariadb:lts
+    restart: always
     volumes:
       - ./.devcontainer/scripts/test-db.sql:/docker-entrypoint-initdb.d/test-db.sql
       - mariadb-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MARIADB_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
   adminer:
-    platform: linux/arm64
     image: adminer
     ports:
       - 9090:9090
@@ -40,10 +60,8 @@ services:
       - ext:/var/www/html/ext
 volumes:
   mariadb-data:
-  vscode-extension-wp:
+  vscode-extensions-wp:
+  profile-wp:
   private:
   public:
   ext:
-networks:
-  host:
-    external: true
