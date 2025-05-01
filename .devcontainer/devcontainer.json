@@ -1,9 +1,16 @@
 {
   "name": "Wordpress Dev Container",
-  // "image": "ghcr.io/nziswano/wp-devcontainer:latest",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
   "postCreateCommand": "bash .devcontainer/scripts/post-create.sh",
-  "postAttachCommand": "bash -i .devcontainer/scripts/post-attach.sh"
+  "postAttachCommand": "bash -i .devcontainer/scripts/post-attach.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot-chat",
+        "GitHub.copilot"
+      ]
+    }
+  }
 }
