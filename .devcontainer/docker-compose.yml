@@ -30,7 +30,7 @@ services:
     image: mariadb:lts
     restart: always
     volumes:
-      - scripts/test-db.sql:/docker-entrypoint-initdb.d/test-db.sql
+      - ./scripts/test-db.sql:/docker-entrypoint-initdb.d/test-db.sql
       - mariadb-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
