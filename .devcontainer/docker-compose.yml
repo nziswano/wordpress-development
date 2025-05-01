@@ -1,0 +1,49 @@
+name: wordpress_dev
+services:
+  app:
+    platform: linux/arm64
+    image: ghcr.io/nziswano/wp-devcontainer:latest
+    volumes:
+      - ..:/workspace:cached
+      - vscode-extension-wp:/vscode/.vscode-server/extensions
+    command: sleep infinity
+    network_mode: service:wordpressdb
+    depends_on:
+      - wordpressdb
+  wordpressdb:
+    platform: linux/arm64
+    image: mariadb
+    restart: unless-stopped
+    volumes:
+      - ./.devcontainer/scripts/test-db.sql:/docker-entrypoint-initdb.d/test-db.sql
+      - mariadb-data:/var/lib/mysql
+  adminer:
+    platform: linux/arm64
+    image: adminer
+    ports:
+      - 9090:9090
+  civicrm:
+    image: civicrm/civicrm:latest
+    ports:
+      - 8080:80 # CiviCRM will be available on port 8760.
+    restart: unless-stopped
+    environment:
+      - CIVICRM_DB_HOST=wordpressdb
+      - CIVICRM_DB_NAME=civicrm
+      - CIVICRM_DB_PASSWORD=wordpress
+      - CIVICRM_DB_PORT=3306
+      - CIVICRM_DB_USER=wordpress
+      - CIVICRM_UF_BASEURL=http://localhost:8760
+    volumes:
+      - private:/var/www/html/private
+      - public:/var/www/html/public
+      - ext:/var/www/html/ext
+volumes:
+  mariadb-data:
+  vscode-extension-wp:
+  private:
+  public:
+  ext:
+networks:
+  host:
+    external: true
