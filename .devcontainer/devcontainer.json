@@ -4,7 +4,7 @@
   "service": "app",
   "workspaceFolder": "/workspace",
   "postCreateCommand": "bash .devcontainer/scripts/post-create.sh",
-  "postAttachCommand": "bash -i .devcontainer/scripts/post-attach.sh",
+  "postAttachCommand": "bash .devcontainer/scripts/post-attach.sh",
   "customizations": {
     "vscode": {
       "extensions": [
